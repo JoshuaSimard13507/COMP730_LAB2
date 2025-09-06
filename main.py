@@ -13,28 +13,34 @@ from Game import Game
 from Player import Player
 import random
 
+
 def setup_game():
+    """
+    Sets up the NIM game by collecting player information and game mode.
+
+    Returns:
+        Game: Configured Game object.
+    """
     player_count = input("How many players?")
     players = []
-    for i in range(0, int(player_count)):
+    for i in range(int(player_count)):
         name = input(f"Enter name for Player {i+1}:")
         players.append(Player(name))
-    
+
     print("Game modes:\n1. Standard: First to reach 0 wins.\n2. Custom: First to reach target score wins.\n2. Custom: Ending value is randomized and not displayed.")
     gtype = input("Select game mode (1, 2, or 3):")
-    match (int(gtype)):
+    match int(gtype):
         case 1:
             game = Game()
             game.gameType = 1
-            game.set_current_score(21) #Default starting score for Game Type 1
+            game.set_current_score(21)  # Default starting score for Game Type 1
             game.set_target_score(0)
             game.set_players(players)
             return game
         case 2:
             game = Game()
             game.gameType = 2
-
-            # Get starting score and target score from userm with input validation
+            # Get starting score and target score from user with input validation
             while True:
                 starting_score = input("Enter starting score:")
                 try:
@@ -49,7 +55,6 @@ def setup_game():
                     break
                 except ValueError:
                     print("Invalid input. Please enter a valid integer for target score.")
-
             game.set_current_score(int(starting_score))
             game.set_target_score(int(target_score))
             game.set_players(players)
@@ -62,21 +67,20 @@ def setup_game():
             game.set_target_score(randomized_target)
             game.set_players(players)
             return game
-
         case _:
             print("Invalid selection. Please choose 1, 2, or 3.")
             return setup_game()
 
 
-
 def main():
+    """
+    Runs the main game loop for the NIM problem.
+    Handles player turns and win condition.
+    """
     current_game = setup_game()
     game_over = False
 
-
-
-
-    while game_over != True:
+    while not game_over:
         for player in current_game.get_players():
             print(f"{player.get_name()}'s turn. Current score: {current_game.get_current_score()}")
             while True:
@@ -92,9 +96,10 @@ def main():
             current_game.set_current_score(new_score)
             print(f"New score after {player.get_name()}'s turn: {current_game.get_current_score()}")
 
-        if(current_game.get_win_condition() == True):
+        if current_game.get_win_condition():
             game_over = True
             print(f"Game Over! {player.get_name()} wins!")
+
 
 if __name__ == "__main__":
     main()

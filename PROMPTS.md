@@ -21,3 +21,6 @@ OUTPUT:
         self.current_score = None
         self.game_type = None
         self.players = []
+
+PROMPT: Generate a UnitTest.py file for the files Game.py, main.py, and Player.py in the style of other files, including docstrings.
+OUTPUT: (The contents of the UnitTest.py file)

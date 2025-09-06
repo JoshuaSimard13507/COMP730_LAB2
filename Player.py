@@ -10,19 +10,52 @@ This module contains the Player class used to represent a player in the NIM game
 """
 
 class Player:
-
+    """
+    Represents a player in the NIM game.
+    Stores the player's name and score.
+    """
     def __init__(self, name):
+        """
+        Initializes a new Player instance.
+
+        Args:
+            name (str): The name of the player.
+        """
         self.name = name
         self.score = 0
 
     def get_name(self):
+        """
+        Returns the player's name.
+
+        Returns:
+            str: The name of the player.
+        """
         return self.name
 
-    def set_name(self, inp):
-        self.name = inp
+    def set_name(self, name):
+        """
+        Sets the player's name.
+
+        Args:
+            name (str): The new name for the player.
+        """
+        self.name = name
 
     def get_score(self):
+        """
+        Returns the player's score.
+
+        Returns:
+            int: The score of the player.
+        """
         return self.score
 
-    def set_score(self, inp):
-        self.score = inp
+    def set_score(self, score):
+        """
+        Sets the player's score.
+
+        Args:
+            score (int): The new score for the player.
+        """
+        self.score = score
