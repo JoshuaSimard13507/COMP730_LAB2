@@ -17,6 +17,9 @@ def setup_game():
     players = []
     for i in range(0, int(player_count)):
         players.append(Player())
+    
+    scr = input("What is the target score?")
+
 
 
 def main():
@@ -28,6 +31,10 @@ def main():
 
     while game_over != True:
 
+
+        if(current_game.get_current_score() >= current_game.get_target_score()):
+            game_over = True
+            print("Game Over!")
 
 if __name__ == "__main__":
     main()
