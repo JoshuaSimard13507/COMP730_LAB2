@@ -22,7 +22,6 @@ class Player:
             name (str): The name of the player.
         """
         self.name = name
-        self.score = 0
 
     def get_name(self):
         """
@@ -41,21 +40,3 @@ class Player:
             name (str): The new name for the player.
         """
         self.name = name
-
-    def get_score(self):
-        """
-        Returns the player's score.
-
-        Returns:
-            int: The score of the player.
-        """
-        return self.score
-
-    def set_score(self, score):
-        """
-        Sets the player's score.
-
-        Args:
-            score (int): The new score for the player.
-        """
-        self.score = score
