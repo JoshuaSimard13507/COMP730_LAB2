@@ -3,6 +3,7 @@ class Game:
         self.targetScore = None #Optional: In Game Type 2, if players score below this value, they win.
         self.currentScore = None
         self.gameType = None
+        self.players = []
 
     def get_target_score(self):
         return self.targetScore
@@ -22,3 +23,8 @@ class Game:
                 return self.currentScore <= 0
             case 2:
                 return self.currentScore <= self.targetScore
+    def set_players(self, players):
+        self.players = players
+
+    def get_players(self):
+        return self.players
