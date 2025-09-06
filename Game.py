@@ -1,28 +1,31 @@
 class Game:
     def __init__(self):
-        self.targetScore = None #Optional: In Game Type 2, if players score below this value, they win.
-        self.currentScore = None
-        self.gameType = None
+        self.target_score = None  # Optional: In Game Type 2, if players score below this value, they win.
+        self.current_score = None
+        self.game_type = None
         self.players = []
 
     def get_target_score(self):
-        return self.targetScore
-    
+        return self.target_score
+
     def set_target_score(self, score):
-        self.targetScore = score
+        self.target_score = score
 
     def get_current_score(self):
-        return self.currentScore
-    
+        return self.current_score
+
     def set_current_score(self, score):
-        self.currentScore = score
+        self.current_score = score
 
     def get_win_condition(self):
-        match (self.gameType):
+        match self.game_type:
             case 1:
-                return self.currentScore <= 0
+                return self.current_score <= 0
             case 2:
-                return self.currentScore <= self.targetScore
+                return self.current_score <= self.target_score
+            case 3:
+                return self.current_score <= self.target_score
+
     def set_players(self, players):
         self.players = players
 
